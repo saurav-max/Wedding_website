@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RKEVENTS</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    .swiper-container {
+      width: 100%;
+      height: 300px;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-700">
+
+ <!-- Hero Section with Background Slideshow -->
+<header class="relative h-screen overflow-hidden">
+  <!-- Slideshow Images -->
+  <div class="absolute top-0 left-0 w-full h-full z-0">
+    <img src="photo-1542042161784-26ab9e041e89.avif" class="hero-bg absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000" />
+    <img src="photo-1583878545126-2f1ca0142714.avif" class="hero-bg absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000" />
+    <img src="photo-1601482441062-b9f13131f33a.avif " class="hero-bg absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000" />
+    <img src="photo-1641279676778-3c94588147fd.avif" class="hero-bg absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000" />
+    <img src="photo-1587271636175-90d58cdad458.avif " class="hero-bg absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000" />
+    <img src="photo-1641279676778-3c94588147fd.avif " class="hero-bg absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000" />
+
+  </div>
+
+  <!-- Overlay Content -->
+  <div class="relative z-10 bg-black bg-opacity-75 h-full flex items-center justify-center text-white">
+    <div class="text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Turning Your Dream Wedding into Reality</h1>
+      <a href="#contact" class="bg-pink-500 hover:bg-pink-600 text-white py-3 px-6 rounded-full text-lg transition">Book a Consultation</a>
+    </div>
+  </div>
+</header>
+
+<!-- Slideshow Script -->
+<script>
+  const backgrounds = document.querySelectorAll('.hero-bg');
+  let currentIndex = 0;
+
+  function showBackground(index) {
+    backgrounds.forEach((bg, i) => {
+      bg.style.opacity = i === index ? '1' : '0';
+    });
+  }
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % backgrounds.length;
+    showBackground(currentIndex);
+  }, 2000); // every 2 seconds
+
+  // Initialize first image
+  showBackground(currentIndex);
+</script>
+
+
+  <!-- About Us with Team Section -->
+<section class="py-16 px-8 text-center" style="background: linear-gradient(to bottom right, #F9E6CF, #FAF3E0);">
+  <h2 class="text-4xl font-bold mb-4 text-pink-800">Meet Our Team</h2>
+  <p class="max-w-3xl mx-auto mb-12 text-gray-700 text-lg">
+    We are a passionate team of wedding planners who bring your vision to life. With over 5 years of experience, we deliver elegant, seamless, and unforgettable celebrations.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <!-- Team Member Card -->
+    <div class="bg-white p-6 rounded-2xl shadow-xl transition-transform transform hover:-translate-y-2 hover:shadow-2xl">
+      <img src="Rahul.jpg" alt="RAHUL YADAV" class="w-28 h-28 object-cover rounded-full mx-auto cursor-pointer hover:scale-105 transition" onclick="openModal('Rahul.jpg')" />
+      <h3 class="text-xl font-semibold mt-4 text-pink-700">RAHUL YADAV</h3>
+      <p class="text-gray-600 text-sm mb-2 italic">Lead Planner</p>
+      <p class="text-gray-700 text-sm mt-2">
+        Oversees the wedding planning from concept to execution. Rahul ensures every element—from logistics to design—aligns seamlessly to create a magical experience.
+      </p>
+    </div>
+
+    <!-- Saurav -->
+    <div class="bg-white p-6 rounded-2xl shadow-xl transition-transform transform hover:-translate-y-2 hover:shadow-2xl">
+      <img src="IMG_20190827_130058.JPG" alt="SAURAV KUMAR" class="w-28 h-28 object-cover rounded-full mx-auto cursor-pointer hover:scale-105 transition" onclick="openModal('IMG_20190827_130058.JPG')" />
+      <h3 class="text-xl font-semibold mt-4 text-pink-700">SAURAV KUMAR</h3>
+      <p class="text-gray-600 text-sm mb-2 italic">Creative Director</p>
+      <p class="text-gray-700 text-sm mt-2">
+        Brings wedding visions to life with unique themes and artistic décor. Saurav curates every detail to reflect the couple’s story and style.
+      </p>
+    </div>
+
+    <!-- Ravi -->
+    <div class="bg-white p-6 rounded-2xl shadow-xl transition-transform transform hover:-translate-y-2 hover:shadow-2xl">
+      <img src="IMG-20190727-WA0032.jpg" alt="RAVI RAJ" class="w-28 h-28 object-cover rounded-full mx-auto cursor-pointer hover:scale-105 transition" onclick="openModal('IMG-20190727-WA0032.jpg')" />
+      <h3 class="text-xl font-semibold mt-4 text-pink-700">RAVI RAJ</h3>
+      <p class="text-gray-600 text-sm mb-2 italic">Event Coordinator</p>
+      <p class="text-gray-700 text-sm mt-2">
+        Ensures seamless execution of every event by handling vendors, timelines, and logistics with care so couples can enjoy their big day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Modal for Enlarged Image -->
+<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex items-center justify-center">
+  <span class="absolute top-5 right-5 text-white text-3xl cursor-pointer" onclick="closeModal()">×</span>
+  <img id="modalImage" src="" class="max-w-3xl w-full rounded-lg shadow-lg border-4 border-white transition-transform duration-300 scale-95 hover:scale-100" />
+</div>
+
+<script>
+  function openModal(imgSrc) {
+    document.getElementById("modalImage").src = imgSrc;
+    document.getElementById("imageModal").classList.remove("hidden");
+  }
+  function closeModal() {
+    document.getElementById("imageModal").classList.add("hidden");
+  }
+</script>
+<!--about section end here-->
+
+  <!-- Services Section -->
+<section class="py-20 px-8 text-center" style="background-color: #FFAB5B;">
+  <h2 class="text-4xl font-bold mb-12 text-white tracking-wide">Our Signature Services</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+    
+    <!-- Service Card -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:scale-105 transition duration-300">
+      <img src="wedding.png" alt="Wedding Planning" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-semibold text-pink-900 mb-2">Full Wedding Planning</h3>
+      <p class="text-gray-700 text-sm">End-to-end management including budget tracking, vendor liaison, scheduling, and on-site coordination for a stress-free celebration.</p>
+    </div>
+
+    <!-- Service Card -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:scale-105 transition duration-300">
+      <img src="wedding-location.png" alt="Venue Selection" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-semibold text-pink-900 mb-2">Venue Selection</h3>
+      <p class="text-gray-700 text-sm">Exclusive access to luxury venues—from royal palaces to serene beach resorts—perfectly tailored to your event style.</p>
+    </div>
+
+    <!-- Service Card -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:scale-105 transition duration-300">
+      <img src="christmas-lights.png" alt="Decor Design" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-semibold text-pink-900 mb-2">Décor & Design</h3>
+      <p class="text-gray-700 text-sm">Custom styling with floral installations, theme lighting, and curated elements that reflect your personality and dreams.</p>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Packages Section -->
+<section class="py-16 px-8 text-center" style="background-color: #FFEBB2;">
+  <h2 class="text-4xl font-semibold mb-10 text-gray-800">Wedding Packages</h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    
+    <!-- Bronze Package -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300">
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">Bronze Package</h3>
+      <p class="text-gray-600 mb-4">Basic coordination & setup</p>
+      <a href="https://www.instagram.com/rk_.event" target="_blank"
+         class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-5 rounded-full transition duration-300">
+        Inquire Now
+      </a>
+    </div>
+
+    <!-- Silver Package -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300">
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">Silver Package</h3>
+      <p class="text-gray-600 mb-4">Mid-level support with design</p>
+      <a href="https://www.instagram.com/rk_.event" target="_blank"
+         class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-5 rounded-full transition duration-300">
+        Inquire Now
+      </a>
+    </div>
+
+    <!-- Gold Package -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300">
+      <h3 class="text-2xl font-bold text-gray-800 mb-3">Gold Package</h3>
+      <p class="text-gray-600 mb-4">Full planning + luxury themes</p>
+      <a href="https://www.instagram.com/rk_.event" target="_blank"
+         class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-5 rounded-full transition duration-300">
+        Inquire Now
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Portfolio Carousel -->
+  <section class="py-16 bg-gray-100 px-8 text-center">
+    <h2 class="text-3xl font-semibold mb-8">Portfolio</h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="Screenshot 2025-05-12 113507.png" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="Screenshot 2025-05-12 113507.png" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="Screenshot 2025-05-12 113914.png" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="Screenshot 2025-05-12 113914.png" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="photo-1587271407850-8d438ca9fdf2.avif" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="photo-1542042161784-26ab9e041e89.avif" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="photo-1587271407850-8d438ca9fdf2.avif" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="Screenshot 2025-05-12 113507.png" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="photo-1610173827002-62c0f1f05d04.avif" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+        <div class="swiper-slide"><img src="photo-1641279676778-3c94588147fd.avif" alt="Wedding" class="rounded shadow w-full h-64 object-cover"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-16 px-8 text-center" style="background-color: #F3C623">
+    <h2 class="text-3xl font-semibold mb-8">Testimonials</h2>
+    <div class="max-w-2xl mx-auto">
+      <p class="italic">"Our wedding was flawless thanks to DreamDay Planners. They took care of every detail!"</p>
+      <p class="mt-2 font-semibold">– Riya & Arjun</p>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="py-16 bg-white px-8 text-center">
+    <h2 class="text-3xl font-semibold mb-8">Wedding Blog</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-gray-100 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-2">Top 5 Wedding Themes for 2025</h3>
+        <p>Discover the most popular wedding themes that couples are loving this year.</p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-2">Budgeting Tips for Dream Weddings</h3>
+        <p>Plan a perfect wedding without overspending. Here’s how you can save smartly.</p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-2">Destination Wedding Guide</h3>
+        <p>All you need to know about organizing weddings at exotic locations.</p>
+      </div>
+    </div>
+  </section>
+
+<section id="contact" class="py-20 px-4 md:px-10" style="background-image: url('https://images.unsplash.com/photo-1549887534-163c5c2d6cf1?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center;">
+  <div class="bg-[#000000b0] backdrop-blur-md rounded-2xl p-10 md:p-16 max-w-6xl mx-auto shadow-xl">
+    <h2 class="text-4xl font-bold text-center text-white mb-12 tracking-wide" data-aos="fade-down">Contact Us</h2>
+
+    <div class="flex flex-col md:flex-row gap-8">
+
+      <!-- Contact Cards -->
+      <div class="w-full md:w-1/3 bg-white p-6 md:p-8 rounded-xl shadow-xl" data-aos="fade-right">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center border-b pb-2">📞 Direct Contacts</h3>
+        <ul class="space-y-4 text-base text-gray-700">
+          <li class="flex justify-between">
+            <span>Rahul Yadav</span>
+            <a href="tel:7970777399" class="text-pink-600 hover:text-pink-800 transition">7970777399</a>
+          </li>
+          <li class="flex justify-between">
+            <span>Saurav Kumar</span>
+            <a href="tel:7635014550" class="text-pink-600 hover:text-pink-800 transition">7635014550</a>
+          </li>
+          <li class="flex justify-between">
+            <span>Ravi Raj</span>
+            <a href="tel:8529757818" class="text-pink-600 hover:text-pink-800 transition">8529757818</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contactForm" action="https://formsubmit.co/sauravkumar63345@email.com" method="POST" class="w-full md:w-2/3 bg-white p-6 md:p-8 rounded-xl shadow-xl" data-aos="fade-left">
+        <div class="grid grid-cols-1 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+            <input type="text" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Event Date</label>
+            <input type="date" name="event_date" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+            <textarea name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none transition"></textarea>
+          </div>
+        </div>
+        <button id="submitBtn" type="submit" disabled class="mt-6 w-full bg-red-500 text-white font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 disabled:cursor-not-allowed">
+          Send Inquiry
+        </button>
+      </form>
+    </div>
+
+    <!-- Alert -->
+    <div id="successAlert" class="hidden mt-6 text-center">
+      <p class="text-green-700 bg-green-100 inline-block px-6 py-2 rounded shadow">✅ Message sent successfully!</p>
+    </div>
+  </div>
+</section>
+
+<!-- JS: Form Validation & Success Alert -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const alertBox = document.getElementById('successAlert');
+    const inputs = form.querySelectorAll('input, textarea');
+
+    const checkInputs = () => {
+      const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
+      submitBtn.disabled = !allFilled;
+      submitBtn.classList.toggle('bg-green-600', allFilled);
+      submitBtn.classList.toggle('hover:bg-green-700', allFilled);
+      submitBtn.classList.toggle('bg-red-500', !allFilled);
+    };
+
+    inputs.forEach(input => input.addEventListener('input', checkInputs));
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // remove in production
+      form.reset();
+      checkInputs();
+      alertBox.classList.remove('hidden');
+      setTimeout(() => alertBox.classList.add('hidden'), 5000);
+    });
+  });
+</script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+
+
+
+
+  <!-- WhatsApp Chat -->
+  <a href="https://wa.me/7635014550" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.72 11.06c-.28-.14-1.64-.8-1.89-.9-.25-.1-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.2-.44-2.28-1.4-.84-.74-1.4-1.64-1.56-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.3.42-.45.14-.14.18-.24.27-.4.1-.18.05-.34-.02-.47-.07-.14-.61-1.45-.83-1.99-.22-.54-.45-.47-.61-.47s-.33-.02-.51-.02c-.18 0-.47.06-.72.3-.25.25-.96.93-.96 2.27s.99 2.63 1.14 2.82c.14.18 1.95 2.97 4.74 4.17.66.28 1.18.44 1.58.56.66.2 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.08-.1-.28-.16-.58-.3z" />
+    </svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6 text-center">
+    <p>&copy; 2025 RK EVENTS. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: { delay: 3000 },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+  </script>
+
+</body>
+</html>
